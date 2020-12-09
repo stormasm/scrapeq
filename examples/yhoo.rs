@@ -1,7 +1,7 @@
-use scrapeq::yhoo::hacker_news;
+use scrapeq::yhoo::quote;
 
 fn main() {
-    match hacker_news() {
+    match quote() {
         Ok(site) => println!("{}", site),
         Err(_) => eprintln!("Error fetching Hacker News data."),
     }

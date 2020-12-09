@@ -34,7 +34,7 @@ impl fmt::Display for Story {
     }
 }
 
-pub fn hacker_news() -> Result<Hn, Error> {
+pub fn quote() -> Result<Hn, Error> {
     let body = get_html("https://news.ycombinator.com/")?;
     let stories = body
         .select(&selector())
