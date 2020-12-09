@@ -4,12 +4,12 @@ use std::fmt;
 use std::result::Result;
 
 #[derive(Debug)]
-pub struct Site {
+pub struct Hn {
     name: String,
     stories: Vec<Story>,
 }
 
-impl fmt::Display for Site {
+impl fmt::Display for Hn {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         writeln!(f, "{}", self.name)?;
         for story in &self.stories {
@@ -34,7 +34,7 @@ impl fmt::Display for Story {
     }
 }
 
-pub fn hacker_news() -> Result<Site, Error> {
+pub fn hacker_news() -> Result<Hn, Error> {
     let body = get_html("https://news.ycombinator.com/")?;
     let stories = body
         .select(&selector())
@@ -43,7 +43,7 @@ pub fn hacker_news() -> Result<Site, Error> {
             link: parse_link(element),
         })
         .collect();
-    let site = Site {
+    let site = Hn {
         name: "Hacker News".to_string(),
         stories,
     };

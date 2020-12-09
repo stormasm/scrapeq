@@ -1,4 +1,4 @@
-use scrapeq::sites::hacker_news;
+use scrapeq::hn::hacker_news;
 
 fn main() {
     match hacker_news() {
