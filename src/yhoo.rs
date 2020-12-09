@@ -35,7 +35,8 @@ impl fmt::Display for Story {
 }
 
 pub fn quote() -> Result<Hn, Error> {
-    let body = get_html("https://news.ycombinator.com/")?;
+    let body = get_html("https://finance.yahoo.com/quote/ibm")?;
+    println!("{:?}",body);
     let stories = body
         .select(&selector())
         .map(|element| Story {
